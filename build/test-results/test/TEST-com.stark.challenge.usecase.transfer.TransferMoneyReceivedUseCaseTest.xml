@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.stark.challenge.usecase.transfer.TransferMoneyReceivedUseCaseTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-08-27T20:53:57" hostname="DESKTOP-8AL4FGE" time="0.499">
+<testsuite name="com.stark.challenge.usecase.transfer.TransferMoneyReceivedUseCaseTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-08-28T00:52:10" hostname="DESKTOP-8AL4FGE" time="0.523">
   <properties/>
-  <testcase name="should_success_when_pass_correct_values()" classname="com.stark.challenge.usecase.transfer.TransferMoneyReceivedUseCaseTest" time="0.487"/>
-  <testcase name="should_error_when_fee_is_greater_than_amount()" classname="com.stark.challenge.usecase.transfer.TransferMoneyReceivedUseCaseTest" time="0.01"/>
+  <testcase name="should_success_when_pass_correct_values()" classname="com.stark.challenge.usecase.transfer.TransferMoneyReceivedUseCaseTest" time="0.509"/>
+  <testcase name="should_error_when_fee_is_greater_than_amount()" classname="com.stark.challenge.usecase.transfer.TransferMoneyReceivedUseCaseTest" time="0.011"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,4 +1,4 @@
-package com.stark.challenge.entrypoint.schedule.config;
+package com.stark.challenge.entrypoint.sqs.config;
 
 import net.datafaker.Faker;
 import org.springframework.context.annotation.Bean;

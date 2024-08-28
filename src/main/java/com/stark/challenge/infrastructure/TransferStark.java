@@ -39,7 +39,7 @@ public class TransferStark implements Transfers {
             var transfers = Transfer.create(List.of(new Transfer(data)));
 
             for (Transfer transfer : transfers) {
-                LOGGER.info("", transfer);
+                LOGGER.info("m=execute transfer={}", transfer);
             }
 
         } catch (InputErrors e) {

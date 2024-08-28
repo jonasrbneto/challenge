@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  # Cria uma fila SQS
+  InvoiceCreateQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: invoice_create_queue
+
+  # Cria uma regra de CloudWatch Events para executar a cada 3 horas
+  CronJobRule:
+    Type: AWS::Events::Rule
+    Properties:
+      ScheduleExpression: 'cron(0 */3 * * ? *)' # A cada 3 horas
+      Targets:
+        - Id: SQS
+          Arn: !GetAtt InvoiceCreateQueue.Arn
+
+  # Permissão para CloudWatch Events enviar mensagens para SQS
+  InvoiceCreateQueuePolicy:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      Queues:
+        - !Ref InvoiceCreateQueue
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+            Action: 'sqs:SendMessage'
+            Resource: !GetAtt InvoiceCreateQueue.Arn
