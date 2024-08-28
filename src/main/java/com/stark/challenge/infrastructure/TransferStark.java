@@ -43,6 +43,7 @@ public class TransferStark implements Transfers {
             }
 
         } catch (InputErrors e) {
+            LOGGER.error("m=execute errors={}", e.errors);
             throw new TransfersErrorException(e.errors);
         } catch (Exception e) {
             throw new RuntimeException(e);
