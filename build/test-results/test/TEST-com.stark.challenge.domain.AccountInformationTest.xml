@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.stark.challenge.domain.AccountInformationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-08-27T20:53:54" hostname="DESKTOP-8AL4FGE" time="0.056">
+  <properties/>
+  <testcase name="should_error_when_accountType_is_empty()" classname="com.stark.challenge.domain.AccountInformationTest" time="0.043"/>
+  <testcase name="should_error_when_branchCode_is_empty()" classname="com.stark.challenge.domain.AccountInformationTest" time="0.002"/>
+  <testcase name="should_error_when_bankCode_is_empty()" classname="com.stark.challenge.domain.AccountInformationTest" time="0.002"/>
+  <testcase name="should_error_when_accountNumber_is_empty()" classname="com.stark.challenge.domain.AccountInformationTest" time="0.001"/>
+  <testcase name="should_success_when_fill_all_fields()" classname="com.stark.challenge.domain.AccountInformationTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

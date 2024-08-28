@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.stark.challenge.domain.PaymentTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-08-27T20:53:54" hostname="DESKTOP-8AL4FGE" time="0.479">
+  <properties/>
+  <testcase name="should_success_when_create_payment()" classname="com.stark.challenge.domain.PaymentTest" time="0.47"/>
+  <testcase name="should_error_when_create_payment_have_amount_minor_equal_0()" classname="com.stark.challenge.domain.PaymentTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

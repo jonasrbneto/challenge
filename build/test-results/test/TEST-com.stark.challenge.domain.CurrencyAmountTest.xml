@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.stark.challenge.domain.CurrencyAmountTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-08-27T20:53:54" hostname="DESKTOP-8AL4FGE" time="0.011">
+  <properties/>
+  <testcase name="should_error_when_subject_minus_result_is_negative()" classname="com.stark.challenge.domain.CurrencyAmountTest" time="0.006"/>
+  <testcase name="should_error_when_subject_minus_the_currency_is_different()" classname="com.stark.challenge.domain.CurrencyAmountTest" time="0.002"/>
+  <testcase name="should_success_when_subject_minus_1_result_9()" classname="com.stark.challenge.domain.CurrencyAmountTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
