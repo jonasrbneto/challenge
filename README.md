@@ -15,7 +15,7 @@ Este projeto é um desafio técnico que envolve:
 
 Aqui está um diagrama da arquitetura do sistema:
 
-![Diagrama de Arquitetura](challenge.jpg)
+![Diagrama de Arquitetura](challenge_aws.jpg)
 
 ## Uso
 1. Crie um Secret Manager na AWS para armazenar a chave privada.
