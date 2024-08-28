@@ -17,7 +17,18 @@ Aqui está um diagrama da arquitetura do sistema:
 
 ![Diagrama de Arquitetura](challenge.jpg)
 
- 
+## Uso
+1. Crie um Secret Manager na AWS para armazenar a chave privada.
+2. Execute o CloudFormation para criar o evento do CloudWatch e a fila SQS.
+3. Adicione os parametros (AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY) da AWS no _path variables_ ou use o aws cli com o comando ```aws configure``` para gerar o .aws com as credentials.
+4. Rode a classe ChallengeApplication.class para executar
+5. Outra opção por Docker
+    - ```./gradlew clean build ```
+    - ``` docker build . ```
+    - ```docker build -t challenge-app .```
+    - ``` docker run -d -p 8080:8080  -e AWS_ACCESS_KEY_ID="<KEY_ID>" -e AWS_SECRET_ACCESS_KEY="<ACCESS_KEY>" challenge-app```
+
+
 ## API
 
 A API disponível para recebimento de webhooks está acessível em:
