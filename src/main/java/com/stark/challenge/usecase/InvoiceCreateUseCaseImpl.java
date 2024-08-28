@@ -2,6 +2,7 @@ package com.stark.challenge.usecase;
 
 import com.stark.challenge.domain.InvoiceReceipt;
 import com.stark.challenge.infrastructure.InvoiceProvider;
+import com.starkbank.Invoice;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,8 +18,8 @@ public class InvoiceCreateUseCaseImpl implements InvoiceUseCase {
     }
 
     @Override
-    public void create() {
-        invoiceProvider.create();
+    public Invoice create(InvoiceReceipt invoiceReceipt) {
+        return invoiceProvider.create(invoiceReceipt);
     }
 
     @Override

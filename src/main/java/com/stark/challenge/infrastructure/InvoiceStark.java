@@ -25,13 +25,13 @@ public class InvoiceStark implements InvoiceProvider {
     }
 
     @Override
-    public void create() {
-        List<Invoice> invoices = new ArrayList<>();
-        HashMap<String, Object> data = new HashMap<>();
-        data.put("amount", 200);
-        data.put("taxId", "012.345.678-90");
-        data.put("name", "Arya Stark");
-
+    public Invoice create(InvoiceReceipt invoiceReceipt) {
+        Invoice invoice = extracted(invoiceReceipt);
+        try {
+            return Invoice.create(List.of(invoice)).getFirst();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -54,21 +54,23 @@ public class InvoiceStark implements InvoiceProvider {
     private static List<Invoice> convert(List<InvoiceReceipt> invoiceReceipts) {
         List<Invoice> invoices = new ArrayList<>();
         invoiceReceipts.stream().forEach(ir -> {
-                    Map<String, Object> invoiceMap = Map.of(
-                            "amount", ir.amount().amount(),
-                            "taxId", ir.nationalRegistration().id(),
-                            "name", ir.name(),
-                            "tags", new String[]{"challenge", "receiver"});
-
-                    try {
-                        invoices.add(new Invoice(invoiceMap));
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
+                    invoices.add(extracted(ir));
                 }
-
         );
         return invoices;
+    }
+
+    private static Invoice extracted(InvoiceReceipt ir) {
+        Map<String, Object> invoiceMap = Map.of(
+                "amount", ir.amount().amount(),
+                "taxId", ir.nationalRegistration().id(),
+                "name", ir.name(),
+                "tags", new String[]{"challenge", "receiver"});
+        try {
+            return new Invoice(invoiceMap);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

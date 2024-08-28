@@ -1,14 +1,16 @@
 package com.stark.challenge.usecase.invoice;
 
 import com.stark.challenge.usecase.transfer.TransferMoneyReceivedUseCase;
-import com.starkbank.Invoice;
-import net.datafaker.Faker;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,14 +29,14 @@ class InvoiceUseCaseStrategyTest {
 
     @Test
     void expect_executor_when_type_is_PAID() {
-        InvoiceExecutor<Invoice> process = subject.process(Type.PAID);
-
-        Assertions.assertEquals(TransferMoneyReceivedUseCase.class, process.getClass());
+        Optional<InvoiceExecutor> process = subject.process(Type.PAID);
+        assertTrue(process.isPresent());
     }
 
-    @Test
-    void expect_null_when_type_is_different_PAID() {
-        InvoiceExecutor<Invoice> process = subject.process(Type.CREATED);
-        Assertions.assertNull(process);
+    @ParameterizedTest
+    @EnumSource(value = Type.class, names = {"CREATED", "CREDITED", "CANCELED", "OVERDUE", "EXPIRED"})
+    void expect_null_when_type_is_different_PAID(Type type) {
+        Optional<InvoiceExecutor> process = subject.process(type);
+        assertFalse(process.isPresent());
     }
 }

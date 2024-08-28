@@ -1,7 +1,0 @@
----
-aws:
-  secretsmanager:
-    region: us-east-1
-spring:
-  application:
-    name: challenge

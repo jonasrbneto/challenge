@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
+import java.util.Optional;
+
 @Controller
 public class WebHookController {
 
@@ -34,8 +36,12 @@ public class WebHookController {
         switch (event.subscription) {
             case "invoice": {
                 Invoice.Log log = ((Event.InvoiceEvent) event).log;
-                InvoiceExecutor process = invoiceStrategy.process(Type.fromString(log.type));
-                process.execute(log.invoice);
+                Type type = Type.fromString(log.type);
+                Optional<InvoiceExecutor> process = invoiceStrategy.process(type);
+                process.ifPresentOrElse(
+                        executor -> executor.execute(log.invoice),
+                        () -> LOGGER.info("m=webhook message=ignored_by_type type={}", type)
+                );
             }
         }
 

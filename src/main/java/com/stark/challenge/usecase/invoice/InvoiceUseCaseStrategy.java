@@ -3,6 +3,8 @@ package com.stark.challenge.usecase.invoice;
 import com.stark.challenge.usecase.transfer.TransferMoneyReceivedUseCase;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class InvoiceUseCaseStrategy implements InvoiceStrategy {
 
@@ -13,12 +15,12 @@ public class InvoiceUseCaseStrategy implements InvoiceStrategy {
     }
 
     @Override
-    public InvoiceExecutor process(Type type) {
+    public Optional<InvoiceExecutor> process(Type type) {
         switch (type) {
             case Type.PAID:
-                return transferMoneyReceivedUseCase;
+                return Optional.of(transferMoneyReceivedUseCase);
         }
-        return null;
+        return Optional.empty();
     }
 
 

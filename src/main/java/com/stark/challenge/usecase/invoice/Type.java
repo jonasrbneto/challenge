@@ -2,7 +2,11 @@ package com.stark.challenge.usecase.invoice;
 
 public enum Type {
     PAID("paid"),
-    CREATED("created");
+    CREATED("created"),
+    CREDITED("credited"),
+    CANCELED("canceled"),
+    OVERDUE("overdue"),
+    EXPIRED("expired");
 
     private String name;
 

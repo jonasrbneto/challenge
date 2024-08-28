@@ -1,6 +1,8 @@
 package com.stark.challenge.usecase.invoice;
 
+import java.util.Optional;
+
 public interface InvoiceStrategy {
 
-    public InvoiceExecutor process(Type type);
+    Optional<InvoiceExecutor> process(Type type);
 }

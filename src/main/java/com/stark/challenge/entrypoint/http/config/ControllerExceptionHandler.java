@@ -1,5 +1,6 @@
 package com.stark.challenge.entrypoint.http.config;
 
+import br.com.caelum.stella.validation.InvalidStateException;
 import com.google.gson.Gson;
 import com.stark.challenge.shared.exceptions.TransfersErrorException;
 import org.springframework.http.HttpHeaders;
@@ -15,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value
-            = {IllegalArgumentException.class, IllegalStateException.class, ArithmeticException.class})
+            = {IllegalArgumentException.class, IllegalStateException.class, ArithmeticException.class, InvalidStateException.class})
     protected ResponseEntity<Object> handleIllegalArgument(
             RuntimeException ex, WebRequest request) {
         String bodyOfResponse = new Gson().toJson(new ErrorResponse(ex.getMessage()));
