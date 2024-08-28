@@ -33,5 +33,5 @@ Aqui está um diagrama da arquitetura do sistema:
 
 A API disponível para recebimento de webhooks está acessível em:
 
-- **URL:** [http://challenge-jonasrbneto.us-east-1.elasticbeanstalk.com/v2/webhook](http://challenge-jonasrbneto.us-east-1.elasticbeanstalk.com/v2/webhook)
+- **URL:** [https://dqzzigt9g7.execute-api.us-east-1.amazonaws.com/live/v2/webhook](https://dqzzigt9g7.execute-api.us-east-1.amazonaws.com/live/v2/webhook)
 
